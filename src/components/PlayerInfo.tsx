@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const PlayerInfo = ({ name, symbol }) => {
+const PlayerInfo = ({ name, symbol, isActive }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedName, setEditedName] = useState(name);
   const handleEditClick = () => {
@@ -10,7 +10,7 @@ const PlayerInfo = ({ name, symbol }) => {
     setEditedName(e.target.value);
   };
   return (
-    <li>
+    <li className={isActive ? "active" : undefined}>
       <span className="player">
         {isEditing ? (
           <input required value={editedName} onChange={handleChange} />
